@@ -25,6 +25,7 @@
 }
 
 .answer {
+  overflow: hidden;
   position: absolute;
   transition: 1s;
   text-align: right;

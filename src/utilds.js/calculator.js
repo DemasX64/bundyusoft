@@ -50,8 +50,9 @@ function findBrackets(query) {
   return result
 }
 export function calculate(query) {
-  query = query.replace('×','*');
-
+  query = query.replaceAll('×','*');
+  query = query.replaceAll(',','.');
+  
   const reg = /[-+*/%√]/;
   for(let i = 1;i<query.length;i++) {
     if(query[i]==='√' && reg.test(query[i-1])){
@@ -64,48 +65,15 @@ export function calculate(query) {
   if(query[0]==='-'){
     query='0'+query;
   }
- // let startBracket = query.indexOf('(');
- // let endBracket = findEndBracket(query,startBracket);
- // if(startBracket!==-1&&endBracket!==-1){
- //  let newQuery = query.slice(startBracket,endBracket+1);
- //  let strResult = calculate(newQuery.slice(1,-1));
- //  query = query.replace(newQuery,strResult)
- // }
  query = findBrackets(query)
-//  const operatorRegex = /[-+*/%]/;
-//  const countersRegex = /\d/;
-//  let lastType = 'count'
-//  let counters = []
-//  let operators = []
-//  for(let i = 0; i<query.length;i++){
-//    if(operatorRegex.test(query[i])){
-//       if(lastType!=='operator') {
-//          operators.push(query[i])
-//       }
-//      lastType = 'operator'
-    
-//    }
-//    if(countersRegex.test(query[i])){
-//      counters.push(query[i])
-//      lastType = 'count'
-//    }
-//  }
- 
  let counters = query.split(/[-+*/%√]/).filter((el)=> el!=='')
- let operators = query.split(/\d/).filter((el)=> el!=='')
-
+ let operators = query.split(/[\d.]/).filter((el)=> el!=='')
  operators.forEach((el,index) => {
   if(el.length>1){
     counters[index+1] = el[1] + counters[index+1];
     operators[index] = el.slice(0,1)
   }
  })
- // operators.forEach((val,index)=>{
- //   if(val==='-'){
- //     counters[index+1]= '-'+ counters[index+1]
- //     operators[index] = '+';
- //   }
- // })
  while(operators.length>0) {
    let nextOperatorIndex = 0;
    for(let i=0;i<operators.length;i++){
@@ -132,8 +100,8 @@ export function haveErrors(query){
       closeBrackets++;
     }
   }
-   const operatorsAtStart = /[+*/%]/
-   const operatorsAtEnd = /[-+*/%√]/
+   const operatorsAtStart = /[+*/%×]/
+   const operatorsAtEnd = /[-+*/%√×]/
    if(operatorsAtStart.test(query[0])||operatorsAtEnd.test(query[query.length-1])) {
     return  true;
    }
