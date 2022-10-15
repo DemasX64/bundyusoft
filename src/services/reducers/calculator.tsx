@@ -10,7 +10,7 @@ interface CalculatorState {
 
 const initialState = {
   isError: false,
-  query:'20×80×0,5',
+  query:'',
   answer: null
 } as CalculatorState
 
