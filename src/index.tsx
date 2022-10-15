@@ -3,13 +3,29 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import calculatorReducer from './services/reducers/calculator';
+import { configureStore } from '@reduxjs/toolkit';
+import './fonts/geometria_medium.otf'
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const store = configureStore({
+  reducer: {
+    calculator: calculatorReducer,
+  },
+});
+
+
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

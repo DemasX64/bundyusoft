@@ -1,0 +1,6 @@
+.keypad {
+  display: grid;
+  gap:4vh;
+  grid-template-columns: repeat(4,8vh);
+  grid-template-rows: repeat(5,8vh);
+}
