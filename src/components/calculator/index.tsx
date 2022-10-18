@@ -1,36 +1,23 @@
 import React, { FC, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Display from './display/display';
 import Keypad from './keypad/keypad';
 import styles from './index.module.css';
-import { clearQuery } from '../../services/reducers/calculator';
-
-const enterKeyCode = 13;
-const escKeyCode = 27;
+import keyInput from '../../utils/keyInput';
+import { RootState } from '../../services/reducers/store';
 
 const Calculator: FC = () => {
   const dispatch = useDispatch();
+  const query = useSelector((state: RootState) => state.calculator.query);
   const { outline, calculator } = styles;
 
   useEffect(() => {
-    const closeModal = (e: KeyboardEvent): void => {
-      if (e.keyCode === escKeyCode) {
-        dispatch(clearQuery());
-      }
+    const keyInputHandler = (e: KeyboardEvent): void => {
+      keyInput(e, dispatch, query);
     };
-    window.addEventListener('keydown', closeModal);
-    return () => window.removeEventListener('keydown', closeModal);
-  }, [dispatch]);
-
-  useEffect(() => {
-    const closeModal = (e: KeyboardEvent): void => {
-      if (e.keyCode === enterKeyCode) {
-        dispatch(clearQuery());
-      }
-    };
-    window.addEventListener('keydown', closeModal);
-    return () => window.removeEventListener('keydown', closeModal);
-  }, [dispatch]);
+    window.addEventListener('keydown', keyInputHandler);
+    return () => window.removeEventListener('keydown', keyInputHandler);
+  }, [dispatch, query]);
 
   return (
     <div className={outline}>
