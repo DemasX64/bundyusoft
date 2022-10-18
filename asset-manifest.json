@@ -1,17 +1,15 @@
 {
   "files": {
-    "main.css": "/bundyusoft/static/css/main.3b10a218.css",
-    "main.js": "/bundyusoft/static/js/main.e362dca7.js",
-    "static/js/787.faf72642.chunk.js": "/bundyusoft/static/js/787.faf72642.chunk.js",
+    "main.css": "/bundyusoft/static/css/main.b5b194e8.css",
+    "main.js": "/bundyusoft/static/js/main.e0fbfc37.js",
     "static/media/geometria_medium.otf": "/bundyusoft/static/media/geometria_medium.7ab28e0b639484784c93.otf",
     "static/media/geometria_bold.otf": "/bundyusoft/static/media/geometria_bold.b44887183ba2d29c6642.otf",
     "index.html": "/bundyusoft/index.html",
-    "main.3b10a218.css.map": "/bundyusoft/static/css/main.3b10a218.css.map",
-    "main.e362dca7.js.map": "/bundyusoft/static/js/main.e362dca7.js.map",
-    "787.faf72642.chunk.js.map": "/bundyusoft/static/js/787.faf72642.chunk.js.map"
+    "main.b5b194e8.css.map": "/bundyusoft/static/css/main.b5b194e8.css.map",
+    "main.e0fbfc37.js.map": "/bundyusoft/static/js/main.e0fbfc37.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b10a218.css",
-    "static/js/main.e362dca7.js"
+    "static/css/main.b5b194e8.css",
+    "static/js/main.e0fbfc37.js"
   ]
 }
