@@ -11,8 +11,8 @@ const Display: FC = () => {
 
   return (
     <div className={styles.display}>
-      <div className={`${styles.query} ${(typeof answer === 'number') ? styles.move : ''} ${isError ? styles.error : ''}`}>{query}</div>
-      {(typeof answer === 'number') && <div className={styles.answer}>{answer}</div>}
+      <div className={`${styles.query} ${(typeof answer === 'number') ? styles.move : ''} ${isError ? styles.error : ''}`} data-testid="input">{query}</div>
+      {(typeof answer === 'number') && <div className={styles.answer} data-testid="answer">{answer}</div>}
     </div>
   );
 };
