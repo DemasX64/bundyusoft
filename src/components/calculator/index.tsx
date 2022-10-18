@@ -1,37 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Display from './display/display';
 import Keypad from './keypad/keypad';
 import styles from './index.module.css';
-import {useDispatch} from 'react-redux'
-import { clearQuery, setError } from '../../services/reducers/calculator';
+import { clearQuery } from '../../services/reducers/calculator';
 
 const enterKeyCode = 13;
 const escKeyCode = 27;
 
-function Calculator() {
-
-  const dispatch = useDispatch()
-  const {outline, calculator} = styles;
+const Calculator: FC = () => {
+  const dispatch = useDispatch();
+  const { outline, calculator } = styles;
 
   useEffect(() => {
-    const closeModal = (e) => {
+    const closeModal = (e: KeyboardEvent): void => {
       if (e.keyCode === escKeyCode) {
-       dispatch(clearQuery());
+        dispatch(clearQuery());
       }
     };
     window.addEventListener('keydown', closeModal);
     return () => window.removeEventListener('keydown', closeModal);
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
-    const closeModal = (e) => {
+    const closeModal = (e: KeyboardEvent): void => {
       if (e.keyCode === enterKeyCode) {
-       dispatch(clearQuery());
+        dispatch(clearQuery());
       }
     };
     window.addEventListener('keydown', closeModal);
     return () => window.removeEventListener('keydown', closeModal);
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={outline}>
@@ -41,7 +40,7 @@ function Calculator() {
         <Keypad />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Calculator;

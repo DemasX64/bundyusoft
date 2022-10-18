@@ -1,26 +1,25 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import type { PayloadAction } from '@reduxjs/toolkit'
+/* eslint-disable no-param-reassign */
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
-
-interface CalculatorState {
-  isError: boolean,
-  query: string,
-  answer: Number | null,
+export interface ICalculatorState {
+  isError: boolean
+  query: string
+  answer: number | null
 }
 
-const initialState = {
+const initialState: ICalculatorState = {
   isError: false,
-  query:'',
-  answer: null
-} as CalculatorState
+  query: '',
+  answer: null,
+};
 
 const calculatorReducer = createSlice({
-  name:'calculator',
+  name: 'calculator',
   initialState,
   reducers: {
     addChar(state, action: PayloadAction<string>) {
-      //if(state.query.slice(-1).isNan)
-      if(state.answer!==null) {
+      if (state.answer !== null) {
         state.answer = null;
       }
       state.isError = false;
@@ -31,14 +30,16 @@ const calculatorReducer = createSlice({
       state.answer = null;
       state.isError = false;
     },
-    setAnswer(state, action){
+    setAnswer(state, action: PayloadAction<number>) {
       state.answer = action.payload;
     },
     setError(state) {
       state.isError = true;
-    }
-  }
-})
+    },
+  },
+});
 
-export const {addChar, clearQuery, setAnswer, setError} = calculatorReducer.actions
+export const {
+  addChar, clearQuery, setAnswer, setError,
+} = calculatorReducer.actions;
 export default calculatorReducer.reducer;

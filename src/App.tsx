@@ -1,25 +1,14 @@
-import React, {useEffect} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from 'react';
 import Calculator from './components/calculator';
-import WebFont from 'webfontloader';
+import styles from './app.module.css';
 
-function App() {
-
-  useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ['Droid Sans', 'Chilanka']
-      }
-    });
-   }, []);
-
-
+const App: FC = () => {
+  const { app } = styles;
   return (
-    <div className="App">
+    <div className={app}>
       <Calculator />
     </div>
   );
-}
+};
 
 export default App;
