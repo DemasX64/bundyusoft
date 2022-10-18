@@ -20,7 +20,6 @@ const Keypad: FC = () => {
   };
 
   const equalHandler = (): void => {
-    console.log(haveErrors(query));
     if (!haveErrors(query)) {
       dispatch(setAnswer(calculate(query)));
     } else {
