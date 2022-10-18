@@ -4,7 +4,7 @@ import './index.css';
 import { Provider } from 'react-redux';
 import App from './app';
 import './fonts/geometria_medium.otf';
-import store from './services/reducers/store';
+import store from './services/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../services/reducers/store';
+import { RootState } from '../../../services/store';
 
 import styles from './display.module.css';
 

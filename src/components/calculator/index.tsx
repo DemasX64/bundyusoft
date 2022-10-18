@@ -4,7 +4,7 @@ import Display from './display/display';
 import Keypad from './keypad/keypad';
 import styles from './index.module.css';
 import keyInput from '../../utils/keyInput';
-import { RootState } from '../../services/reducers/store';
+import { RootState } from '../../services/store';
 
 const Calculator: FC = () => {
   const dispatch = useDispatch();

@@ -6,7 +6,7 @@ import {
   addChar, clearQuery, setAnswer, setError,
 } from '../../../services/reducers/calculator';
 import { calculate, haveErrors } from '../../../utils/calculator';
-import { RootState } from '../../../services/reducers/store';
+import { RootState } from '../../../services/store';
 
 const Keypad: FC = () => {
   const dispatch = useDispatch();

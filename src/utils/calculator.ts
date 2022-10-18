@@ -42,9 +42,13 @@ export function calculate(input: string): number {
   query = query.replaceAll(',', '.');
 
   const reg = /[-+*/%√]/;
+  const digits = /[1-9]/;
   for (let i = 1; i < query.length; i++) {
     if (query[i] === '√' && reg.test(query[i - 1])) {
       query = `${query.slice(0, i)}1${query.slice(i, query.length)}`;
+    }
+    if (query[i] === '(' && digits.test(query[i - 1])) {
+      query = `${query.slice(0, i)}*${query.slice(i, query.length)}`;
     }
   }
   if (query[0] === '√') {
