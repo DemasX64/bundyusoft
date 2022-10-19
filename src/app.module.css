@@ -4,7 +4,7 @@
   align-items: center;
 
   overflow: hidden;
- 
+  height: 100%;
   width: 100vw;
   background: linear-gradient(122.76deg, #FFA2A2 4.09%, #FF7B7B 91.04%);
 }
