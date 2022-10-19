@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/bundyusoft/static/css/main.5c9039bf.css",
-    "main.js": "/bundyusoft/static/js/main.e0fbfc37.js",
+    "main.css": "/bundyusoft/static/css/main.04ee4163.css",
+    "main.js": "/bundyusoft/static/js/main.2261233a.js",
     "static/media/geometria_medium.otf": "/bundyusoft/static/media/geometria_medium.7ab28e0b639484784c93.otf",
     "static/media/geometria_bold.otf": "/bundyusoft/static/media/geometria_bold.b44887183ba2d29c6642.otf",
     "index.html": "/bundyusoft/index.html",
-    "main.5c9039bf.css.map": "/bundyusoft/static/css/main.5c9039bf.css.map",
-    "main.e0fbfc37.js.map": "/bundyusoft/static/js/main.e0fbfc37.js.map"
+    "main.04ee4163.css.map": "/bundyusoft/static/css/main.04ee4163.css.map",
+    "main.2261233a.js.map": "/bundyusoft/static/js/main.2261233a.js.map"
   },
   "entrypoints": [
-    "static/css/main.5c9039bf.css",
-    "static/js/main.e0fbfc37.js"
+    "static/css/main.04ee4163.css",
+    "static/js/main.2261233a.js"
   ]
 }
