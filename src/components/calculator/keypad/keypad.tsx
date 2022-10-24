@@ -1,34 +1,31 @@
-import React, { FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { FC, useContext } from 'react';
 import KeyButton from '../key-button/key-button';
 import styles from './keypad.module.css';
-import {
-  addChar, clearQuery, setAnswer, setError,
-} from '../../../services/reducers/calculator';
 import { calculate, haveErrors } from '../../../utils/calculator';
-import { RootState } from '../../../services/store';
+import { CalculatorContext } from '../../../App';
 
 const Keypad: FC = () => {
-  const dispatch = useDispatch();
-  const query = useSelector((state: RootState) => state.calculator.query);
-  const answer = useSelector((state: RootState) => state.calculator.answer);
+  const calculatorContext = useContext(CalculatorContext);
+  const {
+    query, answer, addChar, setIsError, clearQuery, setAnswer,
+  } = calculatorContext;
 
   const { keypad } = styles;
 
   const addCharHandle = (char: string): void => {
-    dispatch(addChar(char));
+    addChar(char);
   };
 
   const equalHandler = (): void => {
     if (!haveErrors(query)) {
-      dispatch(setAnswer(calculate(query)));
+      setAnswer(calculate(query));
     } else {
-      dispatch(setError());
+      setIsError(true);
     }
   };
 
   const clearHandle = (): void => {
-    dispatch(clearQuery());
+    clearQuery();
   };
 
   return (

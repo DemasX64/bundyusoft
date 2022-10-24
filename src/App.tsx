@@ -1,9 +1,9 @@
 import React, { FC, createContext } from 'react';
 import Calculator from './components/calculator';
 import styles from './app.module.css';
-import useCalculator from './hooks/useCalculator';
+import useCalculator, { ICalculator } from './hooks/useCalculator';
 
-export const CalculatorContext = createContext();
+export const CalculatorContext = createContext<ICalculator>();
 
 const App: FC = () => {
   const calculator = useCalculator();

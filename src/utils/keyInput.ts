@@ -1,6 +1,5 @@
-import { Dispatch } from 'redux';
-import { addChar, clearQuery, setAnswer } from '../services/reducers/calculator';
-import { calculate } from './calculator';
+import { ICalculator } from '../hooks/useCalculator';
+import { calculate, haveErrors } from './calculator';
 
 const enterKey = 'Enter';
 const escKey = 'Escape';
@@ -26,67 +25,74 @@ const percentKey = '%';
 
 const equalKey = '=';
 
-const keyInput = (e: KeyboardEvent, dispatch: Dispatch, query: string): void => {
+const keyInput = (e: KeyboardEvent, calculator: ICalculator): void => {
+  const {
+    query, clearQuery, setAnswer, addChar, setIsError,
+  } = calculator;
   switch (e.key) {
     case escKey:
-      dispatch(clearQuery());
+      clearQuery();
       break;
     case equalKey:
-      dispatch(setAnswer(calculate(query)));
+      setAnswer(calculate(query));
       break;
     case enterKey:
-      dispatch(setAnswer(calculate(query)));
+      if (!haveErrors(query)) {
+        setAnswer(calculate(query));
+      } else {
+        setIsError(true);
+      }
       break;
     case openBracketKey:
-      dispatch(addChar(openBracketKey));
+      addChar(openBracketKey);
       break;
     case closeBracketKey:
-      dispatch(addChar(closeBracketKey));
+      addChar(closeBracketKey);
       break;
     case oneKey:
-      dispatch(addChar(oneKey));
+      addChar(oneKey);
       break;
     case twoKey:
-      dispatch(addChar(twoKey));
+      addChar(twoKey);
       break;
     case threeKey:
-      dispatch(addChar(threeKey));
+      addChar(threeKey);
       break;
     case fourKey:
-      dispatch(addChar(fourKey));
+      addChar(fourKey);
       break;
     case fiveKey:
-      dispatch(addChar(fiveKey));
+      addChar(fiveKey);
       break;
     case sixKey:
-      dispatch(addChar(sixKey));
+      addChar(sixKey);
       break;
     case sevenKey:
-      dispatch(addChar(sevenKey));
+      addChar(sevenKey);
       break;
     case eightKey:
-      dispatch(addChar(eightKey));
+      addChar(eightKey);
       break;
     case nineKey:
-      dispatch(addChar(nineKey));
+      addChar(nineKey);
       break;
     case zeroKey:
-      dispatch(addChar(zeroKey));
+      addChar(zeroKey);
       break;
     case multiplyKey:
-      dispatch(addChar('×'));
+      addChar('×');
       break;
     case divideKey:
-      dispatch(addChar(divideKey));
+      addChar(divideKey);
       break;
     case plusKey:
-      dispatch(addChar(plusKey));
+      addChar(plusKey);
       break;
     case minusKey:
-      dispatch(addChar(minusKey));
+      addChar(minusKey);
       break;
     case percentKey:
-      dispatch(addChar(percentKey));
+      addChar(percentKey);
       break;
     default:
       break;

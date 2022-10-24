@@ -1,23 +1,22 @@
-import React, { FC, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { FC, useContext, useEffect } from 'react';
 import Display from './display/display';
 import Keypad from './keypad/keypad';
 import styles from './index.module.css';
 import keyInput from '../../utils/keyInput';
-import { RootState } from '../../services/store';
+import { CalculatorContext } from '../../App';
 
 const Calculator: FC = () => {
-  const dispatch = useDispatch();
-  const query = useSelector((state: RootState) => state.calculator.query);
+  const useCalculator = useContext(CalculatorContext);
+
   const { outline, calculator } = styles;
 
   useEffect(() => {
     const keyInputHandler = (e: KeyboardEvent): void => {
-      keyInput(e, dispatch, query);
+      keyInput(e, useCalculator);
     };
     window.addEventListener('keydown', keyInputHandler);
     return () => window.removeEventListener('keydown', keyInputHandler);
-  }, [dispatch, query]);
+  }, [useCalculator]);
 
   return (
     <div className={outline}>

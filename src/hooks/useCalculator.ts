@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-interface ICalculator {
+export interface ICalculator {
   isError: boolean
   query: string
   answer: number | null
