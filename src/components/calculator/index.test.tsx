@@ -1,15 +1,20 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Provider } from 'react-redux';
+import React, { useState } from 'react';
+import {
+  render, screen, fireEvent, renderHook,
+} from '@testing-library/react';
 import Calculator from '.';
-import store from '../../services/store';
+import { CalculatorContext } from '../../App';
+import useCalculator from '../../hooks/useCalculator';
 
 test('renders learn react link', () => {
+  const { result } = renderHook(() => useCalculator());
+
   render(
-    <Provider store={store}>
+    <CalculatorContext.Provider value={result.current}>
       <Calculator />
-    </Provider>,
+    </CalculatorContext.Provider>,
   );
+
   const inputElement = screen.getByTestId('input');
   const answerElement = screen.queryByTestId('answer');
   const firstCountElement = screen.getByText('1');
@@ -25,9 +30,13 @@ test('renders learn react link', () => {
   expect(answerElement).toBeNull();
 
   fireEvent.click(firstCountElement);
+  console.log(result.current);
   fireEvent.click(operatorElement);
+  console.log(result.current);
   fireEvent.click(secondCountElement);
+  console.log(result.current);
   fireEvent.click(equalElement);
+
   expect(screen.getByTestId('answer')).toBeInTheDocument();
   expect(inputElement).toContainHTML('1+2');
 });
