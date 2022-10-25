@@ -30,11 +30,8 @@ test('renders learn react link', () => {
   expect(answerElement).toBeNull();
 
   fireEvent.click(firstCountElement);
-  console.log(result.current);
   fireEvent.click(operatorElement);
-  console.log(result.current);
   fireEvent.click(secondCountElement);
-  console.log(result.current);
   fireEvent.click(equalElement);
 
   expect(screen.getByTestId('answer')).toBeInTheDocument();
