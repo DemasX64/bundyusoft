@@ -1,6 +1,6 @@
-import React, { FC, createContext } from 'react';
+import React, { FC } from 'react';
 import styles from './app.module.css';
-import useCalculator, { ICalculator } from './hooks/useCalculator';
+import useCalculator from './hooks/useCalculator';
 import CalculatorContext from './contexts/calculatorContext';
 import Calculator from './components/calculator';
 

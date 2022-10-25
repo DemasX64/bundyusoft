@@ -1,22 +1,22 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import Display from './display/display';
 import styles from './index.module.css';
 import keyInput from '../../utils/keyInput';
-import CalculatorContext from '../../contexts/calculatorContext';
 import Keypad from './keypad/keypad';
+import useCalculatorContext from '../../hooks/useCalculatorContext';
 
 const Calculator: FC = () => {
-  const useCalculator = useContext(CalculatorContext);
+  const calculatorContext = useCalculatorContext();
 
   const { outline, calculator } = styles;
 
   useEffect(() => {
     const keyInputHandler = (e: KeyboardEvent): void => {
-      keyInput(e, useCalculator);
+      keyInput(e, calculatorContext);
     };
     window.addEventListener('keydown', keyInputHandler);
     return () => window.removeEventListener('keydown', keyInputHandler);
-  }, [useCalculator]);
+  }, [calculatorContext]);
 
   return (
     <div className={outline}>

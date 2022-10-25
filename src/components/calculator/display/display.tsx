@@ -1,10 +1,10 @@
-import React, { FC, useContext } from 'react';
-import CalculatorContext from '../../../contexts/calculatorContext';
+import React, { FC } from 'react';
+import useCalculatorContext from '../../../hooks/useCalculatorContext';
 
 import styles from './display.module.css';
 
 const Display: FC = () => {
-  const calculatorContext = useContext(CalculatorContext);
+  const calculatorContext = useCalculatorContext();
   const { query, answer, isError } = calculatorContext;
 
   return (

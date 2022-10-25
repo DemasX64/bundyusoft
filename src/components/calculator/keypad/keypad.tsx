@@ -1,11 +1,11 @@
-import React, { FC, useContext } from 'react';
+import React, { FC } from 'react';
 import KeyButton from '../key-button/key-button';
 import styles from './keypad.module.css';
 import { calculate, haveErrors } from '../../../utils/calculator';
-import CalculatorContext from '../../../contexts/calculatorContext';
+import useCalculatorContext from '../../../hooks/useCalculatorContext';
 
 const Keypad: FC = () => {
-  const calculatorContext = useContext(CalculatorContext);
+  const calculatorContext = useCalculatorContext();
   const {
     query, answer, addChar, setIsError, clearQuery, setAnswer,
   } = calculatorContext;
