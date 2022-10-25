@@ -3,8 +3,8 @@ import {
   render, screen, fireEvent, renderHook,
 } from '@testing-library/react';
 import Calculator from '.';
-import { CalculatorContext } from '../../App';
 import useCalculator from '../../hooks/useCalculator';
+import CalculatorContext from '../../contexts/calculatorContext';
 
 test('renders learn react link', () => {
   const { result } = renderHook(() => useCalculator());

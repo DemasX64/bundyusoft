@@ -2,7 +2,7 @@ import React, { FC, useContext } from 'react';
 import KeyButton from '../key-button/key-button';
 import styles from './keypad.module.css';
 import { calculate, haveErrors } from '../../../utils/calculator';
-import { CalculatorContext } from '../../../App';
+import CalculatorContext from '../../../contexts/calculatorContext';
 
 const Keypad: FC = () => {
   const calculatorContext = useContext(CalculatorContext);

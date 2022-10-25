@@ -1,9 +1,9 @@
 import React, { FC, useContext, useEffect } from 'react';
 import Display from './display/display';
-import Keypad from './keypad/keypad';
 import styles from './index.module.css';
 import keyInput from '../../utils/keyInput';
-import { CalculatorContext } from '../../App';
+import CalculatorContext from '../../contexts/calculatorContext';
+import Keypad from './keypad/keypad';
 
 const Calculator: FC = () => {
   const useCalculator = useContext(CalculatorContext);

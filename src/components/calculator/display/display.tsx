@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react';
-import { CalculatorContext } from '../../../App';
+import CalculatorContext from '../../../contexts/calculatorContext';
 
 import styles from './display.module.css';
 
