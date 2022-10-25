@@ -6,8 +6,6 @@
 ## Стек
 
 - React
-- Redux
-- Redux Toolkit
 - Typescript
 - Jest/React testing library
 
